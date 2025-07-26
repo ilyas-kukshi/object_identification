@@ -16,6 +16,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.deepPurple, // Default button color
+          textTheme: ButtonTextTheme.primary, // Text color for buttons
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+        ),
       ),
     );
   }

@@ -10,6 +10,7 @@ abstract class ObjectIdentificationModel with _$ObjectIdentificationModel {
   const factory ObjectIdentificationModel({
     @XFileConverter() required XFile image,
     required List<LabelModel> labels,
+    String? selectedLabel,
     @XFileConverter() XFile? qrImage,
     String? qrId,
   }) = _ObjectIdentificationModel;

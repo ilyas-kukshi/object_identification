@@ -13,6 +13,7 @@ _ObjectIdentificationModel _$ObjectIdentificationModelFromJson(
   labels: (json['labels'] as List<dynamic>)
       .map((e) => LabelModel.fromJson(e as Map<String, dynamic>))
       .toList(),
+  selectedLabel: json['selectedLabel'] as String?,
   qrImage: _$JsonConverterFromJson<String, XFile>(
     json['qrImage'],
     const XFileConverter().fromJson,
@@ -25,6 +26,7 @@ Map<String, dynamic> _$ObjectIdentificationModelToJson(
 ) => <String, dynamic>{
   'image': const XFileConverter().toJson(instance.image),
   'labels': instance.labels,
+  'selectedLabel': instance.selectedLabel,
   'qrImage': _$JsonConverterToJson<String, XFile>(
     instance.qrImage,
     const XFileConverter().toJson,

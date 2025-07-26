@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ObjectIdentificationModel {
 
-@XFileConverter() XFile get image; List<LabelModel> get labels;@XFileConverter() XFile? get qrImage; String? get qrId;
+@XFileConverter() XFile get image; List<LabelModel> get labels; String? get selectedLabel;@XFileConverter() XFile? get qrImage; String? get qrId;
 /// Create a copy of ObjectIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ObjectIdentificationModelCopyWith<ObjectIdentificationModel> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ObjectIdentificationModel&&(identical(other.image, image) || other.image == image)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.qrImage, qrImage) || other.qrImage == qrImage)&&(identical(other.qrId, qrId) || other.qrId == qrId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ObjectIdentificationModel&&(identical(other.image, image) || other.image == image)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.selectedLabel, selectedLabel) || other.selectedLabel == selectedLabel)&&(identical(other.qrImage, qrImage) || other.qrImage == qrImage)&&(identical(other.qrId, qrId) || other.qrId == qrId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,image,const DeepCollectionEquality().hash(labels),qrImage,qrId);
+int get hashCode => Object.hash(runtimeType,image,const DeepCollectionEquality().hash(labels),selectedLabel,qrImage,qrId);
 
 @override
 String toString() {
-  return 'ObjectIdentificationModel(image: $image, labels: $labels, qrImage: $qrImage, qrId: $qrId)';
+  return 'ObjectIdentificationModel(image: $image, labels: $labels, selectedLabel: $selectedLabel, qrImage: $qrImage, qrId: $qrId)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ObjectIdentificationModelCopyWith<$Res>  {
   factory $ObjectIdentificationModelCopyWith(ObjectIdentificationModel value, $Res Function(ObjectIdentificationModel) _then) = _$ObjectIdentificationModelCopyWithImpl;
 @useResult
 $Res call({
-@XFileConverter() XFile image, List<LabelModel> labels,@XFileConverter() XFile? qrImage, String? qrId
+@XFileConverter() XFile image, List<LabelModel> labels, String? selectedLabel,@XFileConverter() XFile? qrImage, String? qrId
 });
 
 
@@ -65,11 +65,12 @@ class _$ObjectIdentificationModelCopyWithImpl<$Res>
 
 /// Create a copy of ObjectIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? image = null,Object? labels = null,Object? qrImage = freezed,Object? qrId = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? image = null,Object? labels = null,Object? selectedLabel = freezed,Object? qrImage = freezed,Object? qrId = freezed,}) {
   return _then(_self.copyWith(
 image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as XFile,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
-as List<LabelModel>,qrImage: freezed == qrImage ? _self.qrImage : qrImage // ignore: cast_nullable_to_non_nullable
+as List<LabelModel>,selectedLabel: freezed == selectedLabel ? _self.selectedLabel : selectedLabel // ignore: cast_nullable_to_non_nullable
+as String?,qrImage: freezed == qrImage ? _self.qrImage : qrImage // ignore: cast_nullable_to_non_nullable
 as XFile?,qrId: freezed == qrId ? _self.qrId : qrId // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -156,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@XFileConverter()  XFile image,  List<LabelModel> labels, @XFileConverter()  XFile? qrImage,  String? qrId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@XFileConverter()  XFile image,  List<LabelModel> labels,  String? selectedLabel, @XFileConverter()  XFile? qrImage,  String? qrId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ObjectIdentificationModel() when $default != null:
-return $default(_that.image,_that.labels,_that.qrImage,_that.qrId);case _:
+return $default(_that.image,_that.labels,_that.selectedLabel,_that.qrImage,_that.qrId);case _:
   return orElse();
 
 }
@@ -177,10 +178,10 @@ return $default(_that.image,_that.labels,_that.qrImage,_that.qrId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@XFileConverter()  XFile image,  List<LabelModel> labels, @XFileConverter()  XFile? qrImage,  String? qrId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@XFileConverter()  XFile image,  List<LabelModel> labels,  String? selectedLabel, @XFileConverter()  XFile? qrImage,  String? qrId)  $default,) {final _that = this;
 switch (_that) {
 case _ObjectIdentificationModel():
-return $default(_that.image,_that.labels,_that.qrImage,_that.qrId);case _:
+return $default(_that.image,_that.labels,_that.selectedLabel,_that.qrImage,_that.qrId);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +198,10 @@ return $default(_that.image,_that.labels,_that.qrImage,_that.qrId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@XFileConverter()  XFile image,  List<LabelModel> labels, @XFileConverter()  XFile? qrImage,  String? qrId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@XFileConverter()  XFile image,  List<LabelModel> labels,  String? selectedLabel, @XFileConverter()  XFile? qrImage,  String? qrId)?  $default,) {final _that = this;
 switch (_that) {
 case _ObjectIdentificationModel() when $default != null:
-return $default(_that.image,_that.labels,_that.qrImage,_that.qrId);case _:
+return $default(_that.image,_that.labels,_that.selectedLabel,_that.qrImage,_that.qrId);case _:
   return null;
 
 }
@@ -212,7 +213,7 @@ return $default(_that.image,_that.labels,_that.qrImage,_that.qrId);case _:
 @JsonSerializable()
 
 class _ObjectIdentificationModel implements ObjectIdentificationModel {
-  const _ObjectIdentificationModel({@XFileConverter() required this.image, required final  List<LabelModel> labels, @XFileConverter() this.qrImage, this.qrId}): _labels = labels;
+  const _ObjectIdentificationModel({@XFileConverter() required this.image, required final  List<LabelModel> labels, this.selectedLabel, @XFileConverter() this.qrImage, this.qrId}): _labels = labels;
   factory _ObjectIdentificationModel.fromJson(Map<String, dynamic> json) => _$ObjectIdentificationModelFromJson(json);
 
 @override@XFileConverter() final  XFile image;
@@ -223,6 +224,7 @@ class _ObjectIdentificationModel implements ObjectIdentificationModel {
   return EqualUnmodifiableListView(_labels);
 }
 
+@override final  String? selectedLabel;
 @override@XFileConverter() final  XFile? qrImage;
 @override final  String? qrId;
 
@@ -239,16 +241,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ObjectIdentificationModel&&(identical(other.image, image) || other.image == image)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.qrImage, qrImage) || other.qrImage == qrImage)&&(identical(other.qrId, qrId) || other.qrId == qrId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ObjectIdentificationModel&&(identical(other.image, image) || other.image == image)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.selectedLabel, selectedLabel) || other.selectedLabel == selectedLabel)&&(identical(other.qrImage, qrImage) || other.qrImage == qrImage)&&(identical(other.qrId, qrId) || other.qrId == qrId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,image,const DeepCollectionEquality().hash(_labels),qrImage,qrId);
+int get hashCode => Object.hash(runtimeType,image,const DeepCollectionEquality().hash(_labels),selectedLabel,qrImage,qrId);
 
 @override
 String toString() {
-  return 'ObjectIdentificationModel(image: $image, labels: $labels, qrImage: $qrImage, qrId: $qrId)';
+  return 'ObjectIdentificationModel(image: $image, labels: $labels, selectedLabel: $selectedLabel, qrImage: $qrImage, qrId: $qrId)';
 }
 
 
@@ -259,7 +261,7 @@ abstract mixin class _$ObjectIdentificationModelCopyWith<$Res> implements $Objec
   factory _$ObjectIdentificationModelCopyWith(_ObjectIdentificationModel value, $Res Function(_ObjectIdentificationModel) _then) = __$ObjectIdentificationModelCopyWithImpl;
 @override @useResult
 $Res call({
-@XFileConverter() XFile image, List<LabelModel> labels,@XFileConverter() XFile? qrImage, String? qrId
+@XFileConverter() XFile image, List<LabelModel> labels, String? selectedLabel,@XFileConverter() XFile? qrImage, String? qrId
 });
 
 
@@ -276,11 +278,12 @@ class __$ObjectIdentificationModelCopyWithImpl<$Res>
 
 /// Create a copy of ObjectIdentificationModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? image = null,Object? labels = null,Object? qrImage = freezed,Object? qrId = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? image = null,Object? labels = null,Object? selectedLabel = freezed,Object? qrImage = freezed,Object? qrId = freezed,}) {
   return _then(_ObjectIdentificationModel(
 image: null == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as XFile,labels: null == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
-as List<LabelModel>,qrImage: freezed == qrImage ? _self.qrImage : qrImage // ignore: cast_nullable_to_non_nullable
+as List<LabelModel>,selectedLabel: freezed == selectedLabel ? _self.selectedLabel : selectedLabel // ignore: cast_nullable_to_non_nullable
+as String?,qrImage: freezed == qrImage ? _self.qrImage : qrImage // ignore: cast_nullable_to_non_nullable
 as XFile?,qrId: freezed == qrId ? _self.qrId : qrId // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

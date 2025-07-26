@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_mlkit_image_labeling/google_mlkit_image_labeling.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:object_identification/models/label_model/label_model.dart';
 
 class ClickOrPickBs extends StatelessWidget {
-  const ClickOrPickBs({super.key});
+  final BuildContext context;
+  final void Function() onGalleryTap;
+  final void Function() onCameraTap;
+
+  const ClickOrPickBs({
+    super.key,
+    required this.context,
+    required this.onGalleryTap,
+    required this.onCameraTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,54 +20,15 @@ class ClickOrPickBs extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.photo_library),
             title: const Text('Pick from Gallery'),
-            onTap: () async {
-              // Use image_picker to pick from gallery
-              // Example:
-              final pickedFile = await ImagePicker().pickImage(
-                source: ImageSource.gallery,
-              );
-              if (pickedFile == null) {
-                return;
-              }
-              _detectLabels(pickedFile);
-            },
+            onTap: onGalleryTap,
           ),
           ListTile(
             leading: const Icon(Icons.camera_alt),
             title: const Text('Take a Photo'),
-            onTap: () async {
-              // Use image_picker to take a photo
-
-              final pickedFile = await ImagePicker().pickImage(
-                source: ImageSource.camera,
-              );
-              if (pickedFile == null) {
-                return;
-              }
-              _detectLabels(pickedFile);
-            },
+            onTap: onCameraTap,
           ),
         ],
       ),
     );
-  }
-
-  Future<void> _detectLabels(XFile imageFile) async {
-    List<LabelModel> labelList = [];
-    final inputImage = InputImage.fromFilePath(imageFile.path);
-    final imageLabeler = ImageLabeler(
-      options: ImageLabelerOptions(confidenceThreshold: 0.6),
-    );
-
-    final labels = await imageLabeler.processImage(inputImage);
-    for (final label in labels) {
-      labelList.add(
-        LabelModel(name: label.label, confidence: label.confidence),
-      );
-    }
-    imageLabeler.close();
-
-
-    
   }
 }

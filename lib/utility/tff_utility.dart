@@ -44,7 +44,6 @@ Widget reusableTextFormField({
         validator: validator,
         maxLength: maxLength,
         maxLines: maxlines,
-        cursorColor: Colors.white,
         buildCounter:
             (
               context, {
@@ -66,9 +65,8 @@ Widget reusableTextFormField({
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(12),
           filled: true,
-          fillColor: fillColor,
           hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white60, fontSize: 12),
+          hintStyle: const TextStyle(color: Colors.black54, fontSize: 12),
           labelText: labelText,
           suffix: suffix,
           suffixIcon: suffixIcon,
@@ -82,11 +80,11 @@ Widget reusableTextFormField({
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-            borderSide: const BorderSide(color: Colors.transparent, width: 1),
+            borderSide: const BorderSide(color: Colors.black, width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-            borderSide: const BorderSide(color: Colors.transparent, width: 1),
+            borderSide: const BorderSide(color: Colors.black, width: 1),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
